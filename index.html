@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+    rel="stylesheet">
+    <style>
+        body{
+            background-color: rgb(214, 214, 214);
+            font-size: 20px;
+        }
+        .frm{
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            position: absolute;
+            padding: 30px;
+            border-radius: 5px;
+            background-color: rgb(214, 214, 214);
+            box-shadow: 5px 5px 10px #b6a9a9, -5px -5px 10px #ffffff;
+          
+          
+        }
+        .space{
+            margin-top: 22px;
+            background-color: rgb(214, 214, 214);
+        }
+        #select_option, input[type="text"],.btn{
+            padding: 13px 13px;
+            border-radius: 5px;
+            background-color: rgb(214, 214, 214);
+            border: none;
+            outline: none;  
+            box-shadow: 5px 5px 10px #b6a9a9, -5px -5px 10px #ffffff;
+            font-size: 17px;  
+             
+          
+        }
+        #select_option{
+            margin-top:45px;
+            margin-left: 2px;
+        }
+        input[type="text"]{
+            box-shadow: inset 5px 5px 10px #b6a9a9, inset -5px -5px 10px #ffffff;
+            font-size: 18px;
+        }
+        .btn{
+            box-shadow: 5px 5px 10px #b6a9a9, -5px -5px 10px #ffffff;
+          font-size: 17px;
+        }
+        form label{
+            color: red;
+            font-weight: 400;
+            font-family: Poppins;
+            font-size: 20px;
+           
+        }
+        #select_option,.btn:hover{
+            color: white;
+          background-color: red;
+            transition: all .7s ease;
+        }
+      
+       
+       
+       
+    </style>
+</head>
+
+<body>
+    <div>
+        <form onsubmit="event.preventDefault()" class="frm">
+            <label for="" >INPUT</label><br>
+            <input type="text"  class="space"id="take_input" onclick="myclear()"> <br> 
+            <select name=""  class="space" id="select_option">
+                <option value="celsius">Celcius</option>
+                <option value="fahrenheit">Farenhite</option>
+            </select> <br> <br>
+            <label for="" >OUTPUT</label><br>
+            <input type="text"  class="space" id="display_ouput"> <br>
+            <button  class="space btn" onclick="convert1()">Convert</button>
+        </form>
+
+    </div>
+
+    <script>
+        function convert1() {
+            var str1 = parseFloat(document.getElementById("take_input").value);
+            var str2 = document.getElementById("select_option").value;
+            console.log(str1);
+            console.log(typeof(str1));
+            console.log(str2)
+            if(str2=="celsius")
+            {
+                var f = str1 * (9/5) + 32
+                document.getElementById("display_ouput").value=f;
+            }
+            else{
+                var c =((str1-32)/9)*5
+                document.getElementById("display_ouput").value=c;
+           }
+          
+        }
+       function myclear(){
+        document.getElementById("display_ouput").value="";
+        document.getElementById("take_input").value="";
+        }
+
+
+    </script>
+</body>
+
+
+</html>
