@@ -47,7 +47,7 @@
         }
 
         #select_option {
-            margin-top: 45px;
+            margin-top: 35px;
             margin-left: 2px;
             color: white;
             background-color: red;
@@ -56,11 +56,15 @@
         input[type="text"] {
             box-shadow: inset 5px 5px 10px #b6a9a9, inset -5px -5px 10px #ffffff;
             font-size: 18px;
+            color: red;
         }
 
         .btn {
             box-shadow: 5px 5px 10px #b6a9a9, -5px -5px 10px #ffffff;
             font-size: 17px;
+            padding: 15px 30px;
+            margin-left: 2px;
+            margin-top: 35px;
         }
 
         form label {
@@ -81,9 +85,14 @@
 
 <body>
     <div>
-        <form onsubmit="event.preventDefault()" class="frm">
+
+        <!-- oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" --> 
+        <!-- for restricting alphabets -->
+
+        <form onsubmit="event.preventDefault()" class="frm" autocomplete="off">
             <label for="">INPUT</label><br>
             <input type="text" class="space" id="take_input" onclick="myclear()"> <br>
+
             <select name="" class="space" id="select_option">
                 <option value="celsius">Celcius</option>
                 <option value="fahrenheit">Farenhite</option>
@@ -97,21 +106,38 @@
 
     <script>
         function convert1() {
+            var x = document.getElementById("take_input").value;
             var str1 = parseFloat(document.getElementById("take_input").value);
+            console.log(str1)
             var str2 = document.getElementById("select_option").value;
-            console.log(str1);
+
             console.log(typeof (str1));
             console.log(str2)
             if (str2 == "celsius") {
                 var f = str1 * (9 / 5) + 32
-                document.getElementById("display_ouput").value = f;
+                document.getElementById("display_ouput").value = f + ' \xB0C';
+
             }
-            else {
+            else if (str2 == "fahrenheit") {
                 var c = ((str1 - 32) / 9) * 5
-                document.getElementById("display_ouput").value = c;
+                document.getElementById("display_ouput").value = c + ' \xB0F';
+
             }
 
+            if (isNaN(str1)) {
+
+                document.getElementById("display_ouput").value = "*Input Field is Empty";
+            }
+
+
+
+
+
+
+
         }
+
+
         function myclear() {
             document.getElementById("display_ouput").value = "";
             document.getElementById("take_input").value = "";
