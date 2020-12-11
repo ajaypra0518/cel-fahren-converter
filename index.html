@@ -34,6 +34,7 @@
 
         #select_option,
         input[type="text"],
+        input[type="number"],
         .btn {
             padding: 13px 13px;
             border-radius: 5px;
@@ -53,7 +54,8 @@
             background-color: red;
         }
 
-        input[type="text"] {
+        input[type="text"],
+        input[type="number"] {
             box-shadow: inset 5px 5px 10px #b6a9a9, inset -5px -5px 10px #ffffff;
             font-size: 18px;
             color: red;
@@ -80,18 +82,30 @@
             background-color: red;
             transition: all .7s ease;
         }
+
+        /* for making input type only number */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+         /* for mozzila */
+        input[type=number] {
+            -moz-appearance: textfield;
+        } 
+       
     </style>
 </head>
 
 <body>
     <div>
 
-        <!-- oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" --> 
+        <!-- oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" -->
         <!-- for restricting alphabets -->
 
         <form onsubmit="event.preventDefault()" class="frm" autocomplete="off">
             <label for="">INPUT</label><br>
-            <input type="text" class="space" id="take_input" onclick="myclear()"> <br>
+            <input type="number" class="space" id="take_input" onclick="myclear()"> <br>
 
             <select name="" class="space" id="select_option">
                 <option value="celsius">Celcius</option>
