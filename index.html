@@ -108,6 +108,7 @@
             <input type="number" class="space" id="take_input" onclick="myclear()"> <br>
 
             <select name="" class="space" id="select_option">
+                <option value="select">Select</option>
                 <option value="celsius">Celcius</option>
                 <option value="fahrenheit">Farenhite</option>
             </select> <br> <br>
@@ -129,24 +130,22 @@
             console.log(str2)
             if (str2 == "celsius") {
                 var f = str1 * (9 / 5) + 32
-                document.getElementById("display_ouput").value = f + ' \xB0C';
+                document.getElementById("display_ouput").value = f.toFixed(2) + ' \xB0C';
 
             }
             else if (str2 == "fahrenheit") {
                 var c = ((str1 - 32) / 9) * 5
-                document.getElementById("display_ouput").value = c + ' \xB0F';
+                document.getElementById("display_ouput").value = c.toFixed(2) + ' \xB0F';
 
+            }
+            if(str2=="select"){
+                document.getElementById("display_ouput").value = "*Please select option";
             }
 
             if (isNaN(str1)) {
 
                 document.getElementById("display_ouput").value = "*Input Field is Empty";
             }
-
-
-
-
-
 
 
         }
