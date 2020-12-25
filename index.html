@@ -130,12 +130,12 @@
             console.log(str2)
             if (str2 == "celsius") {
                 var f = str1 * (9 / 5) + 32
-                document.getElementById("display_ouput").value = f.toFixed(2) + ' \xB0C';
+                document.getElementById("display_ouput").value = f.toFixed(2) + ' \xB0F';
 
             }
             else if (str2 == "fahrenheit") {
                 var c = ((str1 - 32) / 9) * 5
-                document.getElementById("display_ouput").value = c.toFixed(2) + ' \xB0F';
+                document.getElementById("display_ouput").value = c.toFixed(2) + ' \xB0C';
 
             }
             if(str2=="select"){
